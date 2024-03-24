@@ -13,10 +13,13 @@
   <body>
     <header>
       <% if customer_signed_in? %>
-      <li>
+      <li> 
         <%= link_to "ログアウト", destroy_customer_session_path, method: :delete %>
       </li>
     <% else %>
+      <li>
+        <%= link_to 'ゲストログイン（閲覧用）', customers_guest_sign_in_path, method: :post %>
+      </li>
       <li>
         <%= link_to "新規登録", new_customer_registration_path %>
       </li>
@@ -25,6 +28,13 @@
       </li>
     <% end %>
     </header>
+
+    <% if flash[:notice] %>
+      <div class="notice">
+        <%= flash[:notice] %>
+      </div>
+    <% end %>
+
     <%= yield %>
   </body>
 </html>
