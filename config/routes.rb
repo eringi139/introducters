@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+
   devise_for :customers, skip: [:passwords], controllers: {
     registrations: "public/registrations",
     sessions: 'public/sessions'
@@ -18,5 +19,9 @@ Rails.application.routes.draw do
     get '/about' => 'homes#about'
     resources :posts, only: [:index, :new, :create, :show, :edit, :update, :destroy]
     get '/posts/searchs' => 'posts#search'
+  end
+
+  namespace :admin do
+    resources :genres, only: [:index, :create, :edit, :update]
   end
 end
