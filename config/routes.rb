@@ -1,6 +1,11 @@
 Rails.application.routes.draw do
 
 
+  namespace :admin do
+    get 'posts/index'
+    get 'posts/search'
+    get 'posts/show'
+  end
   devise_for :customers, skip: [:passwords], controllers: {
     registrations: "public/registrations",
     sessions: 'public/sessions'
