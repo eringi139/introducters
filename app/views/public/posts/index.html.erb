@@ -1,2 +1,8 @@
-<h1>Public::Posts#index</h1>
-<p>Find me in app/views/public/posts/index.html.erb</p>
+<% @post.each do |post| %>
+<div>
+  <%= image_tag post.image %>
+  <p>タイトル<%= post.title %></p>
+  <p>ジャンル<%= post.genre.name %></p>
+  <p>説明<%= post.body %></p>
+</div>
+<% end %>
