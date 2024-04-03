@@ -21,7 +21,7 @@
 
 <h4>自分の投稿</h4>
 <table>
-<% @posts.each do |posts| %>
+<% @post.each do |posts| %>
 
   <th><%= link_to post_path(posts) do %>
   <%= image_tag posts.image %>

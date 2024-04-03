@@ -1,7 +1,7 @@
 class Public::CustomersController < ApplicationController
   def show
     @customer = current_customer
-    @post = @customer.post
+    @post = @customer.posts
   end
 
   def edit
