@@ -1,2 +1,21 @@
-<h1>Public::Posts#show</h1>
-<p>Find me in app/views/public/posts/show.html.erb</p>
+<h4>投稿詳細</h4>
+<table>
+  <th><%= image_tag @post.image %></th>
+<tr>
+  <th>タイトル</th>
+  <td><%= @post.title %></td>
+</tr>
+<tr>
+  <th>ジャンル</th>
+  <td><%= @post.genre.name %></td>
+</tr>
+<tr>
+  <th>説明</th>
+  <td><%= @post.body %></td>
+</tr>
+<tr>
+  <th>👤</th>
+  <td><%= @post.customer.last_name %><%= @post.customer.first_name %></td>
+</tr>
+</table>
+<%= link_to "編集する", edit_post_path(@post) %>

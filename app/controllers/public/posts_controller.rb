@@ -15,12 +15,18 @@ class Public::PostsController < ApplicationController
   end
 
   def show
+    @post = Post.find(params[:id])
+    @customer = @post.customer
   end
 
   def edit
+    @post = current_customer
   end
 
   def update
+    post = current_customer
+    post.update(post_params)
+    redirect_to post_path
   end
 
   def search
