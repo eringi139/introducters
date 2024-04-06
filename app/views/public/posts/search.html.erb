@@ -1,2 +1,13 @@
-<h1>Public::Posts#search</h1>
-<p>Find me in app/views/public/posts/search.html.erb</p>
+<h2>Results index</h2>
+
+<table class="table table-hover table-inverse">
+  <div>
+    <% @posts.each do |post| %>
+      <p><%= image_tag post.image %></p>
+      <p>タイトル<%= post.title %></p>
+      <p>ジャンル<%= post.genre.name %></p>
+      <p>説明<%= post.body %></p>
+      <p>👤<%= post.customer.last_name %><%= post.customer.first_name %></p>
+    <% end %>
+  </div>
+</table>

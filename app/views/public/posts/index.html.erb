@@ -1,8 +1,14 @@
+<% @genres.each do |genre| %>
+<%= link_to genre.name, posts_path(genre_name: genre.name) %>
+<% end %>
+
+
 <% @post.each do |post| %>
 <div>
   <%= image_tag post.image %>
   <p>タイトル<%= post.title %></p>
   <p>ジャンル<%= post.genre.name %></p>
   <p>説明<%= post.body %></p>
+  <p>👤<%= post.customer.last_name %><%= post.customer.first_name %></p>
 </div>
 <% end %>

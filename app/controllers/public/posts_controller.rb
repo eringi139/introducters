@@ -1,6 +1,12 @@
 class Public::PostsController < ApplicationController
   def index
-    @post = Post.all
+    @genres = Genre.all
+    if params[:genre_name]
+      genre = Genre.find_by(name: params[:genre_name])
+      @post = genre.posts
+    else
+      @post = Post.all
+    end
   end
 
   def new
@@ -20,16 +26,18 @@ class Public::PostsController < ApplicationController
   end
 
   def edit
-    @post = current_customer
+    @post = Post.find(params[:id])
   end
 
   def update
-    post = current_customer
+    post = Post.find(params[:id])
     post.update(post_params)
-    redirect_to post_path
+    redirect_to post_path(post.id)
   end
 
   def search
+    #@customers = Customer.looks(params[:search], params[:word])
+    @posts = Post.looks(params[:word])
   end
 
   def destroy

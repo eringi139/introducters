@@ -16,13 +16,12 @@ Rails.application.routes.draw do
   scope module: :public do
     root to: 'homes#top'
     get '/about' => 'homes#about'
-    resources :posts, only: [:index, :new, :create, :show, :edit, :destroy]
+    get '/posts/searchs' => 'posts#search'
+    resources :posts, only: [:index, :new, :create, :show, :edit, :destroy, :update]
     resources :customers, only: [:edit]
     get '/customers' => 'customers#show'
     get '/customers/confirm_withdraw' => 'customers#confirm_withdraw'
     get '/customers/withdraw' => 'customers#withdraw'
-    get '/posts/searchs' => 'posts#search'
-    patch 'posts/update' => 'posts#update', as: 'update_post'
     patch 'customers/update' => 'customers#update', as: 'update_customer'
   end
 

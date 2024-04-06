@@ -11,4 +11,19 @@ class Post < ApplicationRecord
     image
   end
   
+  def self.looks(word)
+    if word.present?
+      posts = Post.where("title LIKE ?","%#{word}%")
+                  .or(Post.where("body LIKE ?","#{word}"))
+          
+      customers = Customer.where("last_name LIKE?","%#{word}%")
+                          .or(Customer.where("first_name LIKE?", "#{word}"))
+                          
+      customer_post_ids = customers.map { |customer| customer.posts.ids }                    
+          
+      Post.where(id: [posts.ids + customer_post_ids].uniq)
+    else
+      Post.all
+    end
+  end
 end

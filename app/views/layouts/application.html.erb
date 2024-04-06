@@ -23,6 +23,11 @@
       <li> 
         <%= link_to "新規投稿", new_post_path %>
       </li>
+        <%= form_with url: posts_searchs_path, local: true, method: :get do |f| %>
+         <%= f.text_field :word %>
+         
+         <%= f.submit '検索' %>
+        <% end %> 
     <% else %>
       <li>
         <%= link_to 'ゲストログイン（閲覧用）', customers_guest_sign_in_path, method: :post %>

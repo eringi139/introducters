@@ -13,4 +13,6 @@ class Customer < ApplicationRecord
       customer.first_name = "ゲスト"
     end
   end
+  
+  
 end
