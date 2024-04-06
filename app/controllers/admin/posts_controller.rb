@@ -1,5 +1,6 @@
 class Admin::PostsController < ApplicationController
   def index
+    @post = Post.all
   end
 
   def search

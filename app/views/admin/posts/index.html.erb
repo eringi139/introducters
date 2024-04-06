@@ -1,3 +1,10 @@
-<h1>Admin::Posts#index</h1>
-<p>Find me in app/views/admin/posts/index.html.erb</p>
 <%= link_to "ログアウト", destroy_admin_session_path, method: :delete %>
+<% @post.each do |post| %>
+<div>
+  <%= image_tag post.image %>
+  <p>タイトル<%= post.title %></p>
+  <p>ジャンル<%= post.genre.name %></p>
+  <p>説明<%= post.body %></p>
+  <p>👤<%= post.customer.last_name %><%= post.customer.first_name %></p>
+</div>
+<% end %>

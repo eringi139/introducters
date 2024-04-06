@@ -1,0 +1,34 @@
+<h4><%= @customer.last_name + @customer.first_name %>さんの会員詳細</h4>
+
+<div>
+      <table>
+        <tr>
+          <th>会員ID</th>
+          <td><%= @customer.id %></td>
+        </tr>
+        <tr>
+          <th>氏名</th>
+          <td><%= @customer.last_name + @customer.first_name %></td>
+        </tr>
+        <tr>
+          <th>メールアドレス</th>
+          <td><%= @customer.email %></td>
+        </tr>
+        <tr>
+          <th>会員ステータス</th>
+          <td>
+          <% if @customer.is_active == true %>
+           <p class="text-success font-weight-bold">有効</p>
+          <% else %>
+           <p class="text-secondary">退会</p>
+          <% end %>
+          </td>
+
+        </tr>
+      </table>
+    </div>
+
+    <div>
+    <%= link_to "編集する", edit_admin_customer_path(@customer.id) %>
+    コメント一覧を見る
+    </div>
