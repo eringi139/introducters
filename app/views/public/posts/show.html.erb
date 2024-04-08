@@ -18,4 +18,17 @@
   <td><%= @post.customer.last_name %><%= @post.customer.first_name %></td>
 </tr>
 </table>
+<% if @post.favorited_by?(current_customer) %>
+    <p>
+      <%= link_to post_favorite_path(@post), method: :delete do %>
+        ♥<%= @post.favorites.count %> いいね
+      <% end %>
+    </p>
+    <% else %>
+    <p>
+      <%= link_to post_favorite_path(@post), method: :post do %>
+        ♡<%= @post.favorites.count %> いいね
+      <% end %>
+    </p>
+  <% end %>
 <%= link_to "編集する", edit_post_path(@post) %>

@@ -1,12 +1,6 @@
 Rails.application.routes.draw do
 
-  namespace :admin do
-    get 'customers/index'
-    get 'customers/show'
-    get 'customers/edit'
-    get 'customers/update'
-    get 'customers/unsubscribe'
-  end
+
   devise_for :customers, skip: [:passwords], controllers: {
     registrations: "public/registrations",
     sessions: 'public/sessions'
@@ -24,7 +18,9 @@ Rails.application.routes.draw do
     root to: 'homes#top'
     get '/about' => 'homes#about'
     get '/posts/searchs' => 'posts#search'
-    resources :posts, only: [:index, :new, :create, :show, :edit, :destroy, :update]
+    resources :posts, only: [:index, :new, :create, :show, :edit, :destroy, :update] do
+     resource :favorite, only: [:create, :destroy]
+    end
     resources :customers, only: [:edit]
     get '/customers' => 'customers#show'
     get '/customers/confirm_withdraw' => 'customers#confirm_withdraw'

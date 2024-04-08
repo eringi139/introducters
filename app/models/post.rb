@@ -2,6 +2,7 @@ class Post < ApplicationRecord
   has_one_attached :image
   belongs_to :customer
   belongs_to :genre
+  has_many :favorites, dependent: :destroy
   
   def get_image
     unless image.attached?
@@ -25,5 +26,8 @@ class Post < ApplicationRecord
     else
       Post.all
     end
+  end
+  def favorited_by?(customer)
+    favorites.exists?(customer_id: customer.id)
   end
 end
