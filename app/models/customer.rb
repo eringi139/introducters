@@ -5,7 +5,8 @@ class Customer < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   has_many :posts, dependent: :destroy
-  has_many :favorites, dependent: :destroy
+  has_many :favorites, dependent: :destroy  
+  has_many :comments, dependent: :destroy
 
   def self.guest
     find_or_create_by!(email: 'guest@example.com') do |customer|
