@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  
   devise_for :customers, skip: [:passwords], controllers: {
     registrations: "public/registrations",
     sessions: 'public/sessions'
@@ -19,18 +20,18 @@ Rails.application.routes.draw do
     get '/posts/searchs' => 'posts#search'
     resources :posts, only: [:index, :new, :create, :show, :edit, :destroy, :update] do
      resource :favorite, only: [:create, :destroy]
-     resources :comments, only: [:create, :new, :edit, :update, :destroy, :index]
+     resources :post_comments, only: [:create, :new, :edit, :update, :destroy, :index]
     end
     
 
-    resources :customers, only: [:edit] 
-    
-     get '/customers' => 'customers#show'
-     get '/customers/confirm_withdraw' => 'customers#confirm_withdraw'
-     get '/customers/withdraw' => 'customers#withdraw'
-     patch 'customers/update' => 'customers#update', as: 'update_customer'
-      
-    
+    resources :customers, only: [:edit, :show] do
+     get '/confirm_withdraw' => 'customers#confirm_withdraw'
+     get '/withdraw' => 'customers#withdraw'
+     patch '/update' => 'customers#update', as: 'update_customer'
+      member do
+       get :get_favorites 
+      end
+    end
   end
   namespace :admin do
     resources :genres, only: [:index, :create, :edit, :update]

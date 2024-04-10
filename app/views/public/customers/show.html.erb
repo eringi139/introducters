@@ -38,6 +38,9 @@
   <th>説明</th>
   <td><%= posts.body %></td>
 </tr>
-
+<tr>
+  <th>コメント</th>
+  <td><%= link_to "#{posts.post_comments.count} コメント", post_path(posts.id) %></td>
+</tr>
 <% end %>
 </table>

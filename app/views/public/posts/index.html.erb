@@ -10,6 +10,6 @@
   <p>ジャンル<%= post.genre.name %></p>
   <p>説明<%= post.body %></p>
   <p>👤<%= post.customer.last_name %><%= post.customer.first_name %></p>
-  <p><%= link_to "#{post.comments.count} コメント", post_path(<post>  </post>.id) %></p>
+  <p><%= link_to "#{post.post_comments.count} コメント", post_path(post.id) %></p>
 </div>
 <% end %>

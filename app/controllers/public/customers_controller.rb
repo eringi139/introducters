@@ -11,7 +11,7 @@ class Public::CustomersController < ApplicationController
   def update
     customer = current_customer
     customer.update(customer_params)
-    redirect_to customers_path
+    redirect_to customer_path(current_customer)
   end
 
   def confirm_withdraw
@@ -20,10 +20,10 @@ class Public::CustomersController < ApplicationController
   def withdraw
   end
   
-  def favorites
+  def get_favorites
     @customer = Customer.find(params[:id])
-    favorites = Favorite.where(customer_id: @customer.id).pluck(:post_id)
-    @favorite_posts = Post.find(likes)
+    get_favorites = Favorite.where(customer_id: @customer.id).pluck(:post_id)
+    @favorite_posts = Post.find(get_favorites)
     @post = Post.find(params[:id])
   end
   
