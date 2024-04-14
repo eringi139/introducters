@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+<div class="box">
   <head>
     <title>Introducters</title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
@@ -12,17 +13,54 @@
 
   <body>
     <header>
-      <% if customer_signed_in? %>
+      <nav>
+        
+      <ul>
+      <% if admin_signed_in? %>
+      <li>
+        <%= link_to admin_posts_path do %>
+        <i>投稿一覧</i>
+        <% end %>
+      </li>
+      <li>
+        <%= link_to admin_customers_path do %>
+        <i>会員一覧</i>
+        <% end %>
+      </li>
+      <li>
+        <%= link_to admin_genres_path do %>
+        <i>ジャンル一覧</i>
+        <% end %>
+      </li>
+      <li>
+        <%= link_to destroy_admin_session_path, method: :delete do %>
+        <i>ログアウト</i>
+        <% end %>
+      </li>
+      
+      <% elsif customer_signed_in? %>
       
       <li> 
-        <%= link_to "マイページ", customer_path(current_customer) %>
+        <%= link_to customer_path(current_customer) do %>
+        <i>マイページ</i>
+        <% end %>
       </li>
       <li> 
-        <%= link_to "ログアウト", destroy_customer_session_path, method: :delete %>
+        <%= link_to posts_path(current_customer) do %>
+        <i>投稿一覧</i>
+        <% end %>
       </li>
       <li> 
-        <%= link_to "新規投稿", new_post_path %>
+        <%= link_to new_post_path do %>
+        <i>新規投稿</i>
+        <% end %>
       </li>
+      <li> 
+        <%= link_to destroy_customer_session_path, method: :delete do %>
+        <i>ログアウト</i>
+        <% end %>
+      </li>
+      
         <%= form_with url: posts_searchs_path, local: true, method: :get do |f| %>
          <%= f.text_field :word %>
          
@@ -39,6 +77,7 @@
         <%= link_to "ログイン", new_customer_session_path %>
       </li>
     <% end %>
+    
     </header>
 
     <% if flash[:notice] %>
@@ -46,7 +85,10 @@
         <%= flash[:notice] %>
       </div>
     <% end %>
-
+   </ul>
+   </nav>
     <%= yield %>
+</div>
   </body>
 </html>
+

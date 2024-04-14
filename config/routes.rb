@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+
   
   devise_for :customers, skip: [:passwords], controllers: {
     registrations: "public/registrations",
@@ -37,7 +38,9 @@ Rails.application.routes.draw do
     resources :genres, only: [:index, :create, :edit, :update]
     resources :customers, only: [:index, :show, :edit, :update]
     resources :posts, only: [:index, :show]
+    resources :post_comments, only: [:index, :destroy]
     get '/admin/posts' => 'posts#search'
     patch '/admin/customers/unsubscribe' => 'customers#unsubscribe'
   end
 end
+

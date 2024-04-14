@@ -19,11 +19,11 @@ class Admin::CustomersController < ApplicationController
 
   def unsubscribe
   end
-  
+
   private
 
   def customer_params
-    params.require(:customer).permit(:last_name, :first_name, :email)
+    params.require(:customer).permit(:last_name, :first_name, :email, :is_active)
 
   end
 end

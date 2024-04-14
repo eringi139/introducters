@@ -1,5 +1,6 @@
+<h4>投稿一覧</h4>
 <% @genres.each do |genre| %>
-<%= link_to genre.name, posts_path(genre_name: genre.name) %>
+<p><%= link_to genre.name, posts_path(genre_name: genre.name) %></p>
 <% end %>
 
 
@@ -9,7 +10,8 @@
   <p>タイトル<%= post.title %></p>
   <p>ジャンル<%= post.genre.name %></p>
   <p>説明<%= post.body %></p>
-  <p>👤<%= post.customer.last_name %><%= post.customer.first_name %></p>
-  <p><%= link_to "#{post.post_comments.count} コメント", post_path(post.id) %></p>
+  <span><%= post.customer.last_name %><%= post.customer.first_name %></span>
+  <span><%= link_to "#{post.post_comments.count} コメント", post_path(post.id) %></span>
+  <span><%= link_to "#{post.favorites.count} いいね", post_path(post.id) %></span>
 </div>
 <% end %>

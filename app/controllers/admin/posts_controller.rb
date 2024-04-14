@@ -7,5 +7,8 @@ class Admin::PostsController < ApplicationController
   end
 
   def show
+    @post = Post.find(params[:id])
+    @customer = @post.customer
+    @post_comment = PostComment.new
   end
 end
