@@ -13,9 +13,9 @@
   </tr>
   </table>
   <%= f.submit '保存' %>
-  <%= link_to "退会する" %>
-  
-  
-  
+  <%= link_to "退会する", customer_confirm_withdraw_path(current_customer.id) %>
+
+
+
 </div>
 <% end %>

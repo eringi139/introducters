@@ -1,9 +1,12 @@
 class Admin::PostCommentsController < ApplicationController
   def index
-    @post = Post.find(params[:id])
-    @customer = @post.customer
+    @post_comments = PostComment.all
+    @customers = Customer.all
   end
 
   def destroy
+    @post_comment = PostComment.find(params[:id])
+    @post_comment.destroy
+    redirect_to admin_post_comments_path
   end
 end

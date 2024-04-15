@@ -18,15 +18,20 @@ class Public::CustomersController < ApplicationController
   end
 
   def withdraw
+    @customer = current_customer
+    @customer.update!(is_active: false)
+    reset_session
+    flash[:notice] = "退会処理を実行いたしました"
+    redirect_to root_path
   end
-  
+
   def get_favorites
     @customer = Customer.find(params[:id])
     get_favorites = Favorite.where(customer_id: @customer.id).pluck(:post_id)
     @favorite_posts = Post.find(get_favorites)
     @post = Post.find(params[:id])
   end
-  
+
   private
 
   def customer_params
