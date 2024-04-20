@@ -1,16 +1,38 @@
 <section class="inner">
-<h2 class="section-ttl">新規会員登録</h2>
+<style>
+  h4{
+    background:#e6e6e6;
+    padding-left:50px;
+    padding-top:20px;
+   }
+  td{
+     padding-left:50px;
+     padding-top:30px;
+   }
+  h4{
+    background:#e6e6e6;
+    padding-top:50px;
+    padding-left:50px;
+  }
+  p{
+    padding-left:50px;
+    padding-top:10px;
+  }
+</style>
+<h4 style="width: 200px;">新規会員登録</h4>
 
 <%= form_with model: @customer, url: customer_registration_path do |f| %>
   <%= render "public/shared/error_messages", resource: resource %>
 
-<table class="customer_info customer_form">
+<table class="customer_info">
+
   <thead>
   <th></th>
   <th></th>
   <th></th>
   </thead>
   <tbody>
+  
 
  <tr>
     <td>名前</td>
@@ -43,7 +65,7 @@
 </table>
  <% end %>
 
-<h3 class="section-ttl">既に登録済みの方</h3>
+<h4 style="width: 250px;">既に登録済みの方</h4>
 <p><%= link_to "こちら", new_customer_session_path %> からログインしてください。</p></div>
 </section>
 

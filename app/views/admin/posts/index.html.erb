@@ -1,5 +1,6 @@
-<% @post.each do |post| %>
 <div>
+<% @post.each do |post| %>
+<div class="post">
   <%= image_tag post.image %>
   <p>タイトル<%= post.title %></p>
   <p>ジャンル<%= post.genre.name %></p>
@@ -9,3 +10,4 @@
   <%= link_to "#{post.favorites.count} いいね", admin_post_path(post.id) %>
 </div>
 <% end %>
+</div>
