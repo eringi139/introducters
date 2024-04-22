@@ -1,19 +1,52 @@
 <div>
-<h4>投稿一覧</h4>
+
+  <h3>投稿一覧</h3>
+<div class="genre">
+<p>ジャンル検索</p>
 <% @genres.each do |genre| %>
 <p><%= link_to genre.name, posts_path(genre_name: genre.name) %></p>
 <% end %>
+</div>
 
 
 <% @post.each do |post| %>
-<div>
-  <%= image_tag post.image %>
-  <p>タイトル<%= post.title %></p>
-  <p>ジャンル<%= post.genre.name %></p>
-  <p>説明<%= post.body %></p>
-  <span><%= post.customer.last_name %><%= post.customer.first_name %></span>
-  <span><%= link_to "#{post.post_comments.count} コメント", post_path(post.id) %></span>
+<div class="post">
+  <div class="image"><%= image_tag post.image, size: "200*200" %></div>
+  <div class="body">
+  <p>タイトル&nbsp;:&emsp;<%= post.title %></p>
+  <p>ジャンル&nbsp;:&emsp;<%= post.genre.name %></p>
+  <p>説明&nbsp;:&emsp;<%= post.body %></p>
+  <span>👤<%= post.customer.last_name %><%= post.customer.first_name %></span>&nbsp;
+  <span><%= link_to "#{post.post_comments.count} コメント", post_path(post.id) %></span>&nbsp;
   <span><%= link_to "#{post.favorites.count} いいね", post_path(post.id) %></span>
+  </div>
 </div>
 <% end %>
 </div>
+<style>
+    h3{
+    width: 130px;
+    margin-left: 350px;
+    margin-top: 50px;
+    background: #e6e6e6;
+    font-weight: bold;
+    font-size: 25px;
+    }
+    div.genre{
+     margin-top: 20px;
+     margin-left: 100px;
+    }
+    div.post{
+     margin-left: 400px;
+     margin-top: 70px;
+     transform: translateY(-100%);
+     border-top: 1px solid #333;
+     }
+    div.body{
+     margin-left: 110px;
+     transform: translateY(-20%);
+    }
+    div.image{
+     transform: translateY(70%);
+    }
+  </style>

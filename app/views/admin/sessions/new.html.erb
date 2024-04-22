@@ -1,9 +1,12 @@
 <div>
   <style>
     h3{
-    background:#e6e6e6;
-    padding-left:50px;
-    padding-top:20px;
+    width: 120px;
+    margin-left: 40px;
+    margin-top: 50px;
+    background: #e6e6e6;
+    font-weight: bold;
+    font-size: 20px;
    }
    div.field{
     padding-left:50px;
@@ -15,7 +18,7 @@
      padding-top:20px;
     }
   </style>
-<h3 style="width: 200px;">ログイン</h3>
+<h3>ログイン</h3>
 
 <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
   <div class="field">

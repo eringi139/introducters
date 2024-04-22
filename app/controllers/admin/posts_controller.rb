@@ -1,6 +1,13 @@
 class Admin::PostsController < ApplicationController
   def index
-    @post = Post.all
+    @genres = Genre.all
+    if params[:genre_name]
+      genre = Genre.find_by(name: params[:genre_name])
+      @post = genre.posts
+    else
+      @post = Post.all
+    end
+    
   end
 
   def search

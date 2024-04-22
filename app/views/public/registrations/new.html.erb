@@ -1,9 +1,12 @@
 <section class="inner">
 <style>
-  h4{
-    background:#e6e6e6;
-    padding-left:50px;
-    padding-top:20px;
+  div.title{
+    width: 120px;
+    margin-left: 40px;
+    margin-top: 50px;
+    background: #e6e6e6;
+    font-weight: bold;
+    font-size: 20px;
    }
   td{
      padding-left:50px;
@@ -19,7 +22,7 @@
     padding-top:10px;
   }
 </style>
-<h4 style="width: 200px;">新規会員登録</h4>
+<div class="title">新規会員登録</div>
 
 <%= form_with model: @customer, url: customer_registration_path do |f| %>
   <%= render "public/shared/error_messages", resource: resource %>
