@@ -9,26 +9,7 @@
 
     <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
-  <style>
-  header{
-   width:100%;
-   display:flex;
-  }
   
-ul{
- display: flex;
- list-style: none;
-}
-li{
-  margin-left: 20px;
-  margin-right: 20px;
-  margin-top : 15px;
-  line-height: auto;
-}
-nav{
-  margin-left: auto;
-}
-</style>
   </head>
 
   <body>
@@ -110,6 +91,26 @@ nav{
    </nav>
     <%= yield %>
 </div>
+<style>
+  header{
+   width:100%;
+   display:flex;
+  }
+  
+ul{
+ display: flex;
+ list-style: none;
+}
+li{
+  margin-left: 20px;
+  margin-right: 20px;
+  margin-top : 15px;
+  line-height: auto;
+}
+nav{
+  margin-left: auto;
+}
+</style>
   </body>
 </html>
 

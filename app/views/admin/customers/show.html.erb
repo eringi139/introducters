@@ -1,4 +1,4 @@
-<h4><%= @customer.last_name + @customer.first_name %>さんの会員詳細</h>
+<h4><%= @customer.last_name + @customer.first_name %>さんの会員詳細</h4>
 
 <div>
       <table>
@@ -30,5 +30,5 @@
 
     <div>
     <%= link_to "編集する", edit_admin_customer_path(@customer.id) %>
-    コメント一覧を見る
+    <%= link_to "すべての会員のコメント一覧を見る", admin_post_comments_path %>
     </div>

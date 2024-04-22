@@ -9,7 +9,7 @@
   </tr>
 <% @post_comments.each do |post_comment| %>
   <tr>
-    <td class="col-2"><%= @customers.find(post_comment.customer_id).last_name %></td>
+    <td class="col-2"><%= @customers.find(post_comment.customer_id).last_name %><%= @customers.find(post_comment.customer_id).first_name %></td>
     <td class="col-8"><%= post_comment.comment %></td>
     <td class="col-1"><%= post_comment.created_at.strftime('%Y/%m/%d') %></td>
     <td class="col-1">
