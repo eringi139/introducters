@@ -10,7 +10,7 @@
 
 <% @post.each do |post| %>
 <div class="post">
-  <div class="image"><%= image_tag post.image, size: "200*200" %></div>
+  <div class="image"><%= image_tag post.image, size: "100*100" %></div>
   <div class="body">
   <p>タイトル&nbsp;:&emsp;<%= post.title %></p>
   <p>ジャンル&nbsp;:&emsp;<%= post.genre.name %></p>

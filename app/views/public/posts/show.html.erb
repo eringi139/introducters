@@ -1,16 +1,17 @@
+<div class="detail">
 <h4>投稿詳細</h4>
 <table>
   <th><%= image_tag @post.image %></th>
 <tr>
-  <th>タイトル</th>
+  <th>タイトル:</th>
   <td><%= @post.title %></td>
 </tr>
 <tr>
-  <th>ジャンル</th>
+  <th>ジャンル:</th>
   <td><%= @post.genre.name %></td>
 </tr>
 <tr>
-  <th>説明</th>
+  <th>説明:</th>
   <td><%= @post.body %></td>
 </tr>
 <tr>
@@ -29,14 +30,14 @@
       <%= link_to post_favorite_path(@post), method: :post do %>
         ♡<%= @post.favorites.count %> いいね
       <% end %>
-    <%= link_to "#{@post.post_comments.count} コメント", post_path(@post.id) %>
     </p>
   <% end %>
-  <%= link_to "削除", post_path(@post), method: :delete, "data-confirm" => "本当に削除しますか？" %>
+  <%= link_to "削除", post_path(@post), method: :delete, "data-confirm" => "本当に削除しますか？" %>&emsp;
   <%= link_to "編集する", edit_post_path(@post) %>
 
+<div class="create_comments">
 <div>
-  <p>コメント件数：<%= @post.post_comments.count %></p>
+  <p>💭コメント件数：<%= @post.post_comments.count %></p>
   <% @post.post_comments.each do |post_comment| %>
     <%= post_comment.customer.last_name %><%= post_comment.customer.first_name %>
     <%= post_comment.created_at.strftime('%Y/%m/%d') %><%= post_comment.comment %>
@@ -51,3 +52,17 @@
     <%= f.submit "送信する" %>
   <% end %>
 </div>
+</div>
+</div>
+<style>
+  h4{
+    width: 100px;
+    background: #e6e6e6;
+    font-size: 25px;
+    }
+  div.detail{
+     margin-left: 400px;
+     margin-top: 20px;
+     }
+  
+</style>

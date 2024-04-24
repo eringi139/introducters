@@ -18,5 +18,14 @@
   <td><%= @post.customer.last_name %><%= @post.customer.first_name %></td>
 </tr>
 </table>
-<span><%= link_to "#{@post.post_comments.count} コメント", admin_post_path(@post.id) %></span>
+<div>
+  <p>コメント件数：<%= @post.post_comments.count %></p>
+  <% @post.post_comments.each do |post_comment| %>
+    <%= post_comment.customer.last_name %><%= post_comment.customer.first_name %>
+    <p><%= post_comment.created_at.strftime('%Y/%m/%d') %></p><p><%= post_comment.comment %></p>
+
+    <%= link_to '削除', admin_post_comment_path(post_comment), method: :delete, data: { confirm: '本当に削除しますか?' } %>
+
+  <% end %>
+</div>
 <span><%= link_to "#{@post.favorites.count} いいね", admin_post_path(@post.id) %></span>

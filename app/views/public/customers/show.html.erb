@@ -1,46 +1,75 @@
-  <h4>マイページ</h4>
+  <h3>マイページ</h3>
+  <div class="user">
   <h5>登録情報</h5>
-  <%= link_to "編集する", edit_customer_path(@customer) %>
 
-<div>
+<div class="user_body">
   <table>
     <tr>
-     <th>会員ID</th>
+     <th>会員ID:</th>
      <td><%= @customer.id %></td>
     </tr>
     <tr>
-      <th>氏名</th>
+      <th>氏名:</th>
       <td><%= @customer.last_name %><%= @customer.first_name %></td>
     </tr>
     <tr>
-      <th>メールアドレス</th>
+      <th>メールアドレス:</th>
       <td><%= @customer.email %></td>
     </tr>
   </table>
 </div>
+<%= link_to "編集する", edit_customer_path(@customer) %>
+</div>
 
 <h4>自分の投稿</h4>
 <table>
-<% @post.each do |posts| %>
+<% @post.each do |post| %>
 
-  <th><%= link_to post_path(posts) do %>
-  <%= image_tag posts.image %>
-  <% end %></th>
-<tr>
-  <th>タイトル</th>
-  <td><%= link_to posts.title, post_path(posts.id) %></td>
-</tr>
-<tr>
-  <th>ジャンル</th>
-  <td><%= posts.genre.name %></td>
-</tr>
-<tr>
-  <th>説明</th>
-  <td><%= posts.body %></td>
-</tr>
-<tr>
-  <th>コメント</th>
-  <td><%= link_to "#{posts.post_comments.count} コメント", post_path(posts.id) %></td>
-</tr>
+<div class="post">
+  <div class="image"><%= image_tag post.image, size: "100×100" %></div>
+  <div class="body">
+  <p>タイトル&nbsp;:&emsp;<%= post.title %></p>
+  <p>ジャンル&nbsp;:&emsp;<%= post.genre.name %></p>
+  <p>説明&nbsp;:&emsp;<%= post.body %></p>
+  <span>👤<%= post.customer.last_name %><%= post.customer.first_name %></span>&nbsp;
+  <span><%= link_to "#{post.post_comments.count} コメント", post_path(post.id) %></span>&nbsp;
+  <span><%= link_to "#{post.favorites.count} いいね", post_path(post.id) %></span>
+  </div>
+</div>
 <% end %>
+
+<style>
+    h4{
+    width: 130px;
+    margin-left: 600px;
+    margin-top: 20px;
+    background: #e6e6e6;
+    font-weight: bold;
+    font-size: 25px;
+    }
+    h3{
+     width: 130px;
+     margin-left: 250px;
+     margin-top: 50px;
+     background: #e6e6e6;
+     font-weight: bold;
+     font-size: 25px;
+    }
+    div.user{
+     margin-top: 20px;
+     margin-left: 250px;
+    }
+    div.post{
+     margin-left: 250px;
+     margin-top: 30px;
+     border-top: 1px solid #333;
+     }
+    div.body{
+     margin-left: 110px;
+     transform: translateY(-20%);
+    }
+    div.image{
+     transform: translateY(70%);
+    }
+  </style>
 </table>
