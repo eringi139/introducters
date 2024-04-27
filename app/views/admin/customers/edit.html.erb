@@ -1,7 +1,8 @@
-<h2><%= @customer.last_name + @customer.first_name %>さんの会員情報編集</h2>
+<div class="edit">
+<h4><%= @customer.last_name + @customer.first_name %>さんの会員情報編集</h4>
 <%= form_with model: @customer, url: admin_customer_path(@customer.id) do |f| %>
 
-<div>会員ID<%= @customer.id %></div>
+<div>会員ID:<%= @customer.id %></div>
 
 
 <div class="field">
@@ -26,3 +27,10 @@
 <%= f.submit "変更を保存" %>
 </div>
 <% end %>
+</div>
+<style>
+  div.edit{
+    margin-left: 100px;
+    margin-top: 20px;
+  }
+</style>

@@ -11,11 +11,11 @@
 
 <% @post.each do |post| %>
 <div class="post">
-  <div class="image"><%= image_tag post.image, size: "100×100" %></div>
+  <div class="image"><%= image_tag post.image, width: "150px", height: "120px" %></div>
   <div class="body">
-  <p>タイトル&nbsp;:&emsp;<%= post.title %></p>
-  <p>ジャンル&nbsp;:&emsp;<%= post.genre.name %></p>
-  <p>説明&nbsp;:&emsp;<%= post.body %></p>
+  <p>タイトル：<%= post.title %></p>
+  <p>ジャンル：<%= post.genre.name %></p>
+  <p>説明：<%= post.body %></p>
   <span>👤<%= post.customer.last_name %><%= post.customer.first_name %></span>&nbsp;
   <span><%= link_to "#{post.post_comments.count} コメント", post_path(post.id) %></span>&nbsp;
   <span><%= link_to "#{post.favorites.count} いいね", post_path(post.id) %></span>
@@ -43,7 +43,7 @@
      border-top: 1px solid #333;
      }
     div.body{
-     margin-left: 110px;
+     margin-left: 200px;
      transform: translateY(-20%);
     }
     div.image{

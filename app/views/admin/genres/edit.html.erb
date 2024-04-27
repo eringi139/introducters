@@ -1,7 +1,7 @@
-<h3>ジャンル編集</h3>
+<h4>ジャンル編集</h4>
 <%= form_with model: @genre, url: admin_genre_path, method: :patch do |f| %>
 
-<div>
+<div class="edit">
   <table>
   <tr>
     <th>ジャンル名</th>
@@ -9,9 +9,15 @@
   </tr>
   </table>
   <%= f.submit '保存' %>
-
-
-
-
 </div>
 <% end %>
+<style>
+  h4{
+    margin-left: 100px;
+    margin-top: 20px;
+  }
+  div.edit{
+    margin-left: 100px;
+    margin-top: 20px;
+  }
+</style>

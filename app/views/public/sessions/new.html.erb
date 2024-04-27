@@ -1,25 +1,5 @@
 <div>
-  <style>
-    h3{
-    background:#e6e6e6;
-    padding-left:50px;
-    padding-top:20px;
-   }
-   p{
-    background:#e6e6e6;
-    padding-left:50px;
-    padding-top:20px;
-   }
-   div.field{
-    padding-left:50px;
-    padding-top:20px;
-    
-   }
-   div.actions{
-     padding-left:50px;
-     padding-top:20px;
-    }
-  </style>
+  
 <h3 style="width: 200px;">ログイン</h3>
 <p style="width: 300px;">会員の方はこちらからログイン</p>
 <%= form_with model: @customer, url: customer_session_path do |f| %>
@@ -47,3 +27,24 @@
 
 <%= render "public/shared/links" %>
 </div>
+<style>
+    h3{
+    background:#e6e6e6;
+    padding-left:50px;
+    padding-top:20px;
+   }
+   p{
+    background:#e6e6e6;
+    padding-left:50px;
+    padding-top:20px;
+   }
+   div.field{
+    padding-left:50px;
+    padding-top:20px;
+    
+   }
+   div.actions{
+     padding-left:50px;
+     padding-top:20px;
+    }
+  </style>

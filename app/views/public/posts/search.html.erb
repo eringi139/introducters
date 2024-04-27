@@ -1,13 +1,42 @@
-<h2>Results index</h2>
-
-<table class="table table-hover table-inverse">
-  <div>
-    <% @posts.each do |post| %>
-      <p><%= image_tag post.image %></p>
-      <p>タイトル<%= post.title %></p>
-      <p>ジャンル<%= post.genre.name %></p>
-      <p>説明<%= post.body %></p>
-      <p>👤<%= post.customer.last_name %><%= post.customer.first_name %></p>
-    <% end %>
-  </div>
-</table>
+ <div>
+   <h3>検索結果</h3>
+   <table>
+     <div>
+       <% @posts.each do |post| %>
+       <div class="post">
+         <div class="image"><%= image_tag post.image, width: "150px", height: "120px" %></div>
+           <div class="body">
+              <p>タイトル：<%= post.title %></p>
+              <p>ジャンル：<%= post.genre.name %></p>
+              <p>説明：<%= post.body %></p>
+              <p>👤<%= post.customer.last_name %><%= post.customer.first_name %></p>
+           </div>
+         </div>
+       <% end %>
+     </div>
+   </table>
+ </div>
+ 
+ <style>
+    h3{
+    width: 130px;
+    margin-left: 350px;
+    margin-top: 50px;
+    background: #e6e6e6;
+    font-weight: bold;
+    font-size: 25px;
+    }
+    div.post{
+     margin-left: 400px;
+     margin-top: 70px;
+     transform: translateY(-20%);
+     border-top: 1px solid #333;
+     }
+    div.body{
+     margin-left: 200px;
+     transform: translateY(-20%);
+    }
+    div.image{
+     transform: translateY(70%);
+    }
+  </style>

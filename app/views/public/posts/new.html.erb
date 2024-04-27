@@ -1,3 +1,4 @@
+<div class="new_post">
 <h2>新規投稿</h2>
 <%= form_with model: @post do |f| %>
 <h5>画像</h5>
@@ -10,3 +11,12 @@
 <%= f.collection_select :genre_id, Genre.all, :id, :name, include_blank: "選択して下さい" %>
 <%= f.submit '投稿' %>
 <% end %>
+</div>
+
+<style>
+  div.new_post
+  {margin-left: 100px;
+    margin-top: 20px;
+    
+  }
+</style>

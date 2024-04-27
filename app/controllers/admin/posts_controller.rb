@@ -5,7 +5,7 @@ class Admin::PostsController < ApplicationController
       genre = Genre.find_by(name: params[:genre_name])
       @post = genre.posts
     else
-      @post = Post.all
+      @post = Post.order(created_at: :desc)
     end
     
   end

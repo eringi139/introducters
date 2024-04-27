@@ -32,21 +32,25 @@
       <% end %>
     </p>
   <% end %>
-  <%= link_to "削除", post_path(@post), method: :delete, "data-confirm" => "本当に削除しますか？" %>&emsp;
-  <%= link_to "編集する", edit_post_path(@post) %>
-
+  
+ <% if @post.customer_id == current_customer.id %>
+   <%= link_to "投稿を削除", post_path(@post), method: :delete, "data-confirm" => "本当に削除しますか？" %>&emsp;
+   <%= link_to "編集する", edit_post_path(@post) %>
+ <% end %>
 <div class="create_comments">
-<div>
   <p>💭コメント件数：<%= @post.post_comments.count %></p>
   <% @post.post_comments.each do |post_comment| %>
+  <div>
     <%= post_comment.customer.last_name %><%= post_comment.customer.first_name %>
-    <%= post_comment.created_at.strftime('%Y/%m/%d') %><%= post_comment.comment %>
+    <%= post_comment.created_at.strftime('%Y/%m/%d') %><p><%= post_comment.comment %></p>
     <% if post_comment.customer == current_customer %>
-      <%= link_to "削除", post_post_comment_path(post_comment.post, post_comment), method: :delete %>
+      <p><%= link_to "コメントを削除", post_post_comment_path(post_comment.post, post_comment), method: :delete %></p>
     <% end %>
+  </div>
   <% end %>
-</div>
+
 <div>
+  <strong>コメントを追加</strong>
   <%= form_with model: [@post, @post_comment] do |f| %>
     <%= f.text_area :comment, rows: '5', placeholder: "コメントをここに" %>
     <%= f.submit "送信する" %>
@@ -64,5 +68,7 @@
      margin-left: 400px;
      margin-top: 20px;
      }
-  
+  div.create_comments{
+    margin-top: 50px;
+  }
 </style>

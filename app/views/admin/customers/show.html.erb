@@ -1,6 +1,7 @@
-<h4><%= @customer.last_name + @customer.first_name %>さんの会員詳細</h4>
+<div class="user_detail">
+  <h4><%= @customer.last_name + @customer.first_name %>さんの会員詳細</h4>
 
-<div>
+  <div>
       <table>
         <tr>
           <th>会員ID</th>
@@ -26,9 +27,16 @@
 
         </tr>
       </table>
-    </div>
+  </div>
 
     <div>
-    <%= link_to "編集する", edit_admin_customer_path(@customer.id) %>
-    <%= link_to "すべての会員のコメント一覧を見る", admin_post_comments_path %>
+    <p><%= link_to "編集する", edit_admin_customer_path(@customer.id) %></p>
+    <p><%= link_to "すべての会員のコメント一覧を見る", admin_post_comments_path %></p>
     </div>
+</div>
+<style>
+  div.user_detail{
+    margin-left: 400px;
+    margin-top: 20px;
+  }
+</style>

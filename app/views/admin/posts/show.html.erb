@@ -1,3 +1,4 @@
+<div class="detail">
 <h4>投稿詳細</h4>
 <table>
   <th><%= image_tag @post.image %></th>
@@ -18,8 +19,9 @@
   <td><%= @post.customer.last_name %><%= @post.customer.first_name %></td>
 </tr>
 </table>
-<div>
-  <p>コメント件数：<%= @post.post_comments.count %></p>
+<p><%= link_to "#{@post.favorites.count} いいね", admin_post_path(@post.id) %></p>
+<div class="create_comments">
+  <p>💭コメント件数：<%= @post.post_comments.count %></p>
   <% @post.post_comments.each do |post_comment| %>
     <%= post_comment.customer.last_name %><%= post_comment.customer.first_name %>
     <p><%= post_comment.created_at.strftime('%Y/%m/%d') %></p><p><%= post_comment.comment %></p>
@@ -28,4 +30,18 @@
 
   <% end %>
 </div>
-<span><%= link_to "#{@post.favorites.count} いいね", admin_post_path(@post.id) %></span>
+</div>
+<style>
+  h4{
+    width: 100px;
+    background: #e6e6e6;
+    font-size: 25px;
+    }
+  div.detail{
+     margin-left: 400px;
+     margin-top: 20px;
+     }
+  div.create_comments{
+    margin-top: 50px;
+  }
+</style>
