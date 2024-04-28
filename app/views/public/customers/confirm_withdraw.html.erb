@@ -1,3 +1,4 @@
+<div class="field">
 <h3>本当に退会しますか？</h3>
  <p>
    退会すると、会員登録情報や<br>
@@ -7,3 +8,11 @@
  </p>
   <%= link_to "退会する", customer_withdraw_path, data: { confirm: "本当に退会しますか？" } %>
   <%= link_to "退会しない", customer_path(current_customer) %>
+ </div>
+ 
+ <style>
+  div.field{
+   margin-left: 400px;
+   margin-top: 20px;
+  }
+ </style>

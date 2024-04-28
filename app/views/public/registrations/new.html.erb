@@ -1,27 +1,5 @@
 <section class="inner">
-<style>
-  div.title{
-    width: 120px;
-    margin-left: 40px;
-    margin-top: 50px;
-    background: #e6e6e6;
-    font-weight: bold;
-    font-size: 20px;
-   }
-  td{
-     padding-left:50px;
-     padding-top:30px;
-   }
-  h4{
-    background:#e6e6e6;
-    padding-top:50px;
-    padding-left:50px;
-  }
-  p{
-    padding-left:50px;
-    padding-top:10px;
-  }
-</style>
+
 <div class="title">新規会員登録</div>
 
 <%= form_with model: @customer, url: customer_registration_path do |f| %>
@@ -70,6 +48,33 @@
 
 <h4 style="width: 250px;">既に登録済みの方</h4>
 <p><%= link_to "こちら", new_customer_session_path %> からログインしてください。</p></div>
+
+<style>
+  div.title{
+    width: 120px;
+    margin-left: 40px;
+    margin-top: 50px;
+    background: #e6e6e6;
+    font-weight: bold;
+    font-size: 20px;
+   }
+  td{
+     padding-left:50px;
+     padding-top:30px;
+   }
+  h4{
+    background:#e6e6e6;
+    padding-top:20px;
+    padding-left:50px;
+  }
+  p{
+    padding-left:50px;
+    padding-top:10px;
+  }
+  section.inner{
+    margin-left: 200px;
+  }
+</style>
 </section>
 
 

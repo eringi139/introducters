@@ -4,7 +4,7 @@ class Public::SessionsController < Devise::SessionsController
   before_action :customer_state, only: [:create]
 
   def after_sign_in_path_for(resource)
-   posts_path(current_customer)
+   posts_path
   end
 
   def after_sign_out_path_for(resource)

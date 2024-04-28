@@ -1,13 +1,13 @@
 <div class="genres">
 <h4>ジャンル一覧・追加</h4>
 <%= form_with model: @genre, url: admin_genres_path, method: :post do |f| %>
-<p>ジャンル名</p>
+<p>ジャンルの追加</p>
 <%= f.text_field :name %>
 <%= f.submit '新規登録' %>
 <% end %>
 
 <div class="index"></div>
-<p>ジャンル</p>
+<p>ジャンル一覧</p>
 
 <table>
    <% @genres.each do |genre| %>
@@ -19,11 +19,14 @@
 </table>
 </div>
 <style>
+p{
+ margin-top: 50px;
+}
  div.genres{
-  margin-left: 100px;
+  margin-left: 450px;
   margin-top: 20px;
  }
  div.index{
-  margin-top: 20px;
+  margin-top: 50px;
  }
 </style>

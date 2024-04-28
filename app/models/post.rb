@@ -4,7 +4,7 @@ class Post < ApplicationRecord
   belongs_to :genre
   has_many :favorites, dependent: :destroy
   has_many :post_comments, dependent: :destroy
-  
+
   def get_image
     unless image.attached?
       file_path = Rails.root.join('app/assets/images/no_image.jpg')
@@ -12,17 +12,17 @@ class Post < ApplicationRecord
     end
     image
   end
-  
+
   def self.looks(word)
     if word.present?
       posts = Post.where("title LIKE ?","%#{word}%")
-                  .or(Post.where("body LIKE ?","#{word}"))
-          
+                  .or(Post.where("body LIKE ?","%#{word}%"))
+
       customers = Customer.where("last_name LIKE?","%#{word}%")
-                          .or(Customer.where("first_name LIKE?", "#{word}"))
-                          
-      customer_post_ids = customers.map { |customer| customer.posts.ids }                    
-          
+                          .or(Customer.where("first_name LIKE?", "%#{word}%"))
+
+      customer_post_ids = customers.map { |customer| customer.posts.ids }
+
       Post.where(id: [posts.ids + customer_post_ids].uniq)
     else
       Post.all

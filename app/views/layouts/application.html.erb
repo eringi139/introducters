@@ -9,13 +9,13 @@
 
     <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
-  
+
   </head>
 
   <body>
     <header class="shadow-sm">
       <nav>
-      
+
       <ul>
       <% if admin_signed_in? %>
       <li>
@@ -38,35 +38,34 @@
         <i>ログアウト</i>
         <% end %>
       </li>
-      
+
       <% elsif customer_signed_in? %>
-      
-      <li> 
+
+      <li>
         <%= link_to customer_path(current_customer) do %>
         <i>マイページ</i>
         <% end %>
       </li>
-      <li> 
-        <%= link_to posts_path(current_customer) do %>
+      <li>
+        <%= link_to posts_path do %>
         <i>投稿一覧</i>
         <% end %>
       </li>
-      <li> 
+      <li>
         <%= link_to new_post_path do %>
         <i>新規投稿</i>
         <% end %>
       </li>
-      <li> 
+      <li>
         <%= link_to destroy_customer_session_path, method: :delete do %>
         <i>ログアウト</i>
         <% end %>
       </li>
-      
+
         <li><%= form_with url: posts_searchs_path, local: true, method: :get do |f| %>
          <%= f.text_field :word %>
-         
          <%= f.submit '検索' %>
-        <% end %> 
+        <% end %>
         <li>
     <% else %>
       <li>
@@ -79,7 +78,7 @@
         <%= link_to "ログイン", new_customer_session_path %>
       </li>
     <% end %>
-   
+
     </header>
 
     <% if flash[:notice] %>
@@ -96,7 +95,7 @@
    width:100%;
    display:flex;
   }
-  
+
 ul{
  display: flex;
  list-style: none;
