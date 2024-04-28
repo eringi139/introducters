@@ -6,16 +6,13 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
     <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
-
   </head>
 
   <body>
     <header class="shadow-sm">
       <nav>
-
       <ul>
       <% if admin_signed_in? %>
       <li>
@@ -38,9 +35,7 @@
         <i>ログアウト</i>
         <% end %>
       </li>
-
       <% elsif customer_signed_in? %>
-
       <li>
         <%= link_to customer_path(current_customer) do %>
         <i>マイページ</i>
@@ -61,11 +56,11 @@
         <i>ログアウト</i>
         <% end %>
       </li>
-
-        <li><%= form_with url: posts_searchs_path, local: true, method: :get do |f| %>
-         <%= f.text_field :word %>
-         <%= f.submit '検索' %>
-        <% end %>
+        <li>
+          <%= form_with url: posts_searchs_path, local: true, method: :get do |f| %>
+            <%= f.text_field :word %>
+            <%= f.submit '検索' %>
+          <% end %>
         <li>
     <% else %>
       <li>
@@ -90,6 +85,8 @@
    </nav>
     <%= yield %>
 </div>
+
+</body>
 <style>
   header{
    width:100%;
@@ -110,6 +107,6 @@ nav{
   margin-left: auto;
 }
 </style>
-  </body>
+
 </html>
 

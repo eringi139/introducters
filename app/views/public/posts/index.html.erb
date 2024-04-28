@@ -1,27 +1,26 @@
 <div>
+   <h3>投稿一覧</h3>
+   <div class="genre">
+     <p>ジャンル検索</p>
+       <% @genres.each do |genre| %>
+          <p><%= link_to genre.name, posts_path(genre_name: genre.name) %></p>
+       <% end %>
+   </div>
 
-  <h3>投稿一覧</h3>
-<div class="genre">
-<p>ジャンル検索</p>
-<% @genres.each do |genre| %>
-<p><%= link_to genre.name, posts_path(genre_name: genre.name) %></p>
-<% end %>
-</div>
 
-
-<% @post.each do |post| %>
-<div class="post">
-  <div class="image"><%= image_tag post.image, width: "150px", height: "120px" %></div>
-  <div class="body">
-  <p>タイトル：<%= post.title %></p>
-  <p>ジャンル：<%= post.genre.name %></p>
-  <p>説明：<%= post.body %></p>
-  <span>👤<%= post.customer.last_name %><%= post.customer.first_name %></span>&nbsp;
-  <span><%= link_to "#{post.post_comments.count} コメント", post_path(post.id) %></span>&nbsp;
-  <span><%= link_to "#{post.favorites.count} いいね", post_path(post.id) %></span>
-  </div>
-</div>
-<% end %>
+   <% @post.each do |post| %>
+     <div class="post">
+       <div class="image"><%= image_tag post.image, width: "150px", height: "120px" %></div>
+       <div class="body">
+         <p>タイトル：<%= post.title %></p>
+         <p>ジャンル：<%= post.genre.name %></p>
+         <p>説明：<%= post.body %></p>
+         <span>👤<%= post.customer.last_name %><%= post.customer.first_name %></span>&nbsp;
+         <span><%= link_to "#{post.post_comments.count} コメント", post_path(post.id) %></span>&nbsp;
+         <span><%= link_to "#{post.favorites.count} いいね", post_path(post.id) %></span>
+       </div>
+     </div>
+   <% end %>
 </div>
   <style>
     h3{
