@@ -12,19 +12,19 @@ Admin.create!(
 #   Character.create(name: 'Luke', movie: movies.first)
 sanae = Customer.find_or_create_by!(email: "aaa@aaa") do |customer|
   customer.last_name = "佐藤"
-  customer_first_name ="さなえ"
+  customer.first_name ="さなえ"
   customer.password = "000000"
 end
 
 mizuki = Customer.find_or_create_by!(email: "bbb@bbb") do |customer|
   customer.last_name = "桐谷"
-  customer_first_name ="瑞希"
+  customer.first_name ="瑞希"
   customer.password = "000000"
 end
 
 risa = Customer.find_or_create_by!(email: "ccc@ccc") do |customer|
   customer.last_name = "鈴木"
-  customer_first_name ="里沙"
+  customer.first_name ="里沙"
   customer.password = "000000"
 end
 
