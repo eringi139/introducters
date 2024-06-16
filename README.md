@@ -27,8 +27,13 @@
 
 
 ## 設計書
-<!--テーマを設定・提出する時点では不要です-->
-​後ほど作成予定
+- 詳細設計書(https://docs.google.com/spreadsheets/d/18JrWvQTyYAjdqXQH57Uo0sfMOCRQe3GogyJl7zOtmiE/edit?gid=549108681#gid=549108681/)
+- テーブル定義書(https://docs.google.com/spreadsheets/d/1OyYyW4JTdYjWJ26jFOaeVonmz2idK7YlkNm4hW2cpVs/edit?gid=1243549839#gid=1243549839/)
+- ER図(https://app.diagrams.net/#G1q7gWgU6butddMicu4L6bF5vhdiIbgD3p#%7B%22pageId%22%3A%22PGSJm8N7z1OpVHgNyo2r%22%7D/)
+- ワイヤーフレーム
+- 管理者(https://app.diagrams.net/#G11LqDIOHXiBjnxLIRSkIn25qSReESmlwV#%7B%22pageId%22%3A%22fMXwyozo_eIwpZ0O5kyp%22%7D/)
+- 会員(https://app.diagrams.net/#G1eYls5VX8rnb4mYio4fjBrrwHnsnBdSEd#%7B%22pageId%22%3A%22BRcrJ1iCnU7042nr59Ht%22%7D/)
+  
 ## 開発環境
 - OS：Linux(CentOS)
 - 言語：HTML,CSS,JavaScript,Ruby,SQL
